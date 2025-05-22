@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste Supabase</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <h1>Formulário de Contato</h1>
+  <button onclick="enviarMensagem()">Enviar Mensagem</button>
+
+  <script>
+    // 1. Inicializa o Supabase corretamente
+    const supabaseUrl = 'https://jlhzbpbazlvxobqfmhci.supabase.co'; // substitua com a URL real
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpsaHpicGJhemx2eG9icWZtaGNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNjAyMTgsImV4cCI6MjA2MjczNjIxOH0.kNjhJHtPZRw0-TBaFLe8pXlnDEHEgJuqzH3OdiZrrRk'; // substitua com sua chave pública anon
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+    // 2. Cria a função só depois da inicialização
+    async function enviarMensagem() {
+      const { data, error } = await supabase
+        .from('contatos')
+        .insert([
+          { nome: 'Franklin', email: 'franklingaio@yahoo.com.br', mensagem: 'aaaaaaa' }
+        ]);
+
+      if (error) {
+        console.error('Erro ao enviar mensagem:', error);
+        alert('Erro ao enviar a mensagem.');
+      } else {
+        console.log('Mensagem enviada com sucesso:', data);
+        alert('Mensagem enviada com sucesso!');
+      }
+    }
+  </script>
+
+</body>
+</html>
