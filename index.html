@@ -7,6 +7,14 @@
     <meta name="description" content="A EPL é uma gráfica industrial especializada na produção de etiquetas e rótulos personalizados para diversos segmentos. Soluções em impressão de alta qualidade para alimentos, cosméticos, produtos farmacêuticos e muito mais. Atendemos em todo o Brasil.">
     <meta name="keywords" content="etiquetas personalizadas, rótulos adesivos, impressão flexográfica, gráfica industrial, embalagens personalizadas, etiquetas em bobina, etiquetas térmicas">
     <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="color-scheme" content="light">
+<style>
+  html, body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+</style>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>        
     const supabaseUrl = 'https://jlhzbpbazlvxobqfmhci.supabase.co';
@@ -298,13 +306,13 @@
                 <div class="w-20 h-1 bg-purple-900 mx-auto"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Card 1 -->
                 <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
                     <div class="text-purple-900 mb-4">
                         <i class="fas fa-print text-5xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Impressão Offset</h3>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Assistência Técnica para Impressoras de Bobinas</h3>
                     <p class="text-gray-600">Tecnologia ideal para grandes tiragens com cores vibrantes e alta definição, garantindo qualidade superior em seus rótulos.</p>
                 </div>
                 
@@ -324,6 +332,15 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-gray-800">Impressão Digital</h3>
                     <p class="text-gray-600">Tecnologia versátil para pequenas tiragens e personalização, com qualidade fotográfica e entrega ágil para projetos urgentes.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
+                    <div class="text-purple-900 mb-4">
+                        <i class="fas fa-screwdriver-wrench text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Impressão Digital</h3>
+                    <p class="text-gray-600">Manutenção preventiva e corretiva em impressoras de bobinas térmicas. Garantimos performance, precisão e durabilidade nos seus equipamentos com suporte técnico e atendimento rápido.</p>
                 </div>
             </div>
         </div>
@@ -420,45 +437,35 @@
 <script>
   const items = [
     {
-      img: '/imgs/produtos/copo.jpg',
-      title: 'Copo Ecológico',
-      desc: 'Copos reutilizáveis personalizados para eventos e brindes sustentáveis.'
+      img: '/imgs/mockups/picole.png',
+      title: 'Rotulos para Picolés',
+      desc: 'Impressão resistente ao frio e umidade, ideal para produtos congelados.'
     },
     {
-      img: '/imgs/produtos/etiquetas.jpg',
-      title: 'Etiquetas',
-      desc: 'Etiquetas adesivas indicativas, de gôndola, para embalagens, e-commerce, balança e impressoras térmicas.'
+      img: '/imgs/mockups/suco.png',
+      title: 'Rotulos para Sucos',
+      desc: 'Acabamento brilhante que destaca sua marca nas embalagens.'
     },
     {
-      img: '/imgs/produtos/rotulos.jpg',
-      title: 'Rótulos',
-      desc: 'Rótulos adesivos personalizados para embalagens de alimentos, cosméticos, bebidas e outros produtos.'
+      img: '/imgs/mockups/desinfetante.png',
+      title: 'Rotulos para Produtos Quimicos',
+      desc: 'Alta durabilidade e resistência à umidade e produtos químicos, garantindo legibilidade e segurança.'
     },
     {
-      img: '',
-      title: 'Produto',
-      desc: 'Descrição'
+      img: '/imgs/mockups/garrafa.png',
+      title: 'Rótulos para Garrafas de Vidro',
+      desc: 'Sofisticação e aderência em rótulos personalizados, ideais para bebidas alcoólicas e produtos engarrafados.'
+    }, 
+    {
+      img: '/imgs/mockups/geleia.png',
+      title: 'Rótulos para Garrafas de Vidro',
+      desc: 'Sofisticação e aderência em rótulos personalizados, ideais para bebidas alcoólicas e produtos engarrafados.'
     },
     {
-      img: '',
-      title: 'Produto',
-      desc: 'Descrição'
-    },
-    {
-      img: '',
-      title: 'Produto',
-      desc: 'Descrição'
-    },
-    {
-      img: '',
-      title: 'Produto',
-      desc: 'Descrição'
-    },
-    {
-      img: '',
-      title: 'Produto',
-      desc: 'Descrição'
-    }
+      img: '/imgs/mockups/carne.png',
+      title: 'Rótulos para Embalagens de Carne',
+      desc: 'Sofisticação e aderência em rótulos personalizados, ideais para bebidas alcoólicas e produtos engarrafados.'
+    },                   
   ];
 
   const slider = document.getElementById('product-slider');
@@ -480,7 +487,7 @@
       el.className = 'min-w-[50%] sm:min-w-[25%] p-2 box-border';
       el.innerHTML = `
         <div class="bg-white rounded-lg shadow-md overflow-hidden flex-col h-full">
-          <img src="${item.img}" alt="${item.title}" class="w-full h-48 object-cover flex-shrink-0">
+          <img src="${item.img}" alt="${item.title}" class="w-full h-128 object-cover flex-shrink-0">
           <div class="p-4 flex-grow flex flex-col justify-between">
             <h3 class="font-bold text-lg text-gray-800">${item.title}</h3>
             <p class="text-gray-600 text-sm">${item.desc}</p>
@@ -515,7 +522,7 @@
       setTimeout(() => {
         index = 0;
         updateSlidePosition(false);
-      }, 500);
+      }, 20);
     } else {
       updateSlidePosition(true);
     }
