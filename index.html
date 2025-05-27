@@ -7,6 +7,7 @@
     <meta name="description" content="A EPL é uma gráfica industrial especializada na produção de etiquetas e rótulos personalizados para diversos segmentos. Soluções em impressão de alta qualidade para alimentos, cosméticos, produtos farmacêuticos e muito mais. Atendemos em todo o Brasil.">
     <meta name="keywords" content="etiquetas personalizadas, rótulos adesivos, impressão flexográfica, gráfica industrial, embalagens personalizadas, etiquetas em bobina, etiquetas térmicas">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>    
     <meta name="color-scheme" content="light">
 <style>
   html, body {
@@ -425,62 +426,87 @@
     <!-- Carousel wrapper -->
 <div class="relative overflow-hidden w-full">
   <div id="product-slider" class="flex transition-transform duration-500 ease-in-out will-change-transform"></div>
+
+  <!-- Botões visíveis apenas em telas grandes -->
+<button id="prevBtn" class="hidden sm:block absolute left-2 top-[40%] -translate-y-1/2 bg-white/70 hover:bg-white w-12 h-12 rounded-full shadow-md z-10 flex items-center justify-center text-xl">
+  ‹
+</button>
+<button id="nextBtn" class="hidden sm:block absolute right-2 top-[40%] -translate-y-1/2 bg-white/70 hover:bg-white w-12 h-12 rounded-full shadow-md z-10 flex items-center justify-center text-xl">
+  ›
+</button>
+
 </div>
 
-            <div class="text-center mt-12">
-                <a href="#contato" class="btn-primary inline-flex items-center px-6 py-3 rounded-full text-white font-bold">
-                    Solicitar Catálogo Completo
-                </a>
-            </div>
-
+<div class="text-center mt-12">
+  <a href="#contato" class="btn-primary inline-flex items-center px-6 py-3 rounded-full text-white font-bold">
+    Solicitar Catálogo Completo
+  </a>
+</div>
 
 <script>
   const items = [
-    {
-      img: '/imgs/mockups/picole.png',
-      title: 'Rotulos para Picolés',
-      desc: 'Impressão resistente ao frio e umidade, ideal para produtos congelados.'
-    },
-    {
-      img: '/imgs/mockups/suco.png',
-      title: 'Rotulos para Sucos',
-      desc: 'Acabamento brilhante que destaca sua marca nas embalagens.'
-    },
-    {
-      img: '/imgs/mockups/desinfetante.png',
-      title: 'Rotulos para Produtos Quimicos',
-      desc: 'Alta durabilidade e resistência à umidade e produtos químicos, garantindo legibilidade e segurança.'
-    },
-    {
-      img: '/imgs/mockups/garrafa.png',
-      title: 'Rótulos para Garrafas de Vidro',
-      desc: 'Sofisticação e aderência em rótulos personalizados, ideais para bebidas alcoólicas e produtos engarrafados.'
-    }, 
-    {
-      img: '/imgs/mockups/geleia.png',
-      title: 'Rótulos para Garrafas de Vidro',
-      desc: 'Sofisticação e aderência em rótulos personalizados, ideais para bebidas alcoólicas e produtos engarrafados.'
-    },
-    {
-      img: '/imgs/mockups/carne.png',
-      title: 'Rótulos para Embalagens de Carne',
-      desc: 'Sofisticação e aderência em rótulos personalizados, ideais para bebidas alcoólicas e produtos engarrafados.'
-    },                   
-  ];
-
-  const slider = document.getElementById('product-slider');
+ { img: '/imgs/mockups/adesivos.png', 
+    title: 'Adesivos Personalizados', 
+    desc: 'Perfeito para ação de marketing, campanhas eleitorais e identificação em veículos, roupas e vitrines.' 
+  },   
+  { img: '/imgs/mockups/picole.png', 
+    title: 'Rótulos para Picolés', 
+    desc: 'Impressão resistente ao frio e umidade, ideal para produtos congelados.' 
+  },
+  { img: '/imgs/mockups/suco.png', 
+    title: 'Rótulos para Sucos', 
+    desc: 'Acabamento brilhante que valoriza sua marca e resiste à umidade da refrigeração.' 
+  },
+  { img: '/imgs/mockups/panfleto.png', 
+    title: 'Panfletos Promocionais', 
+    desc: 'Impressão em alta qualidade para divulgar seus produtos e serviços.' 
+  },
+  { img: '/imgs/mockups/cartao.png', 
+    title: 'Cartões de Visita', 
+    desc: 'Design profissional e impressão de alta definição para causar uma ótima primeira impressão.' 
+  },
+  { img: '/imgs/mockups/desinfetante.png', 
+    title: 'Rótulos para Produtos de Limpeza', 
+    desc: 'Alta resistência a produtos químicos e umidade, garantindo segurança e durabilidade.' 
+  },
+  { img: '/imgs/mockups/copo.png', 
+    title: 'Rótulos para Copos', 
+    desc: 'Perfeitos para personalização de copos descartáveis e reutilizáveis em eventos ou marcas.' 
+  },
+  { img: '/imgs/mockups/bobina.png', 
+    title: 'Impressão em Bobina', 
+    desc: 'Ideal para grandes tiragens, com agilidade e compatibilidade para diversos sistemas de envase.' 
+  },
+  { img: '/imgs/mockups/garrafa.png', 
+    title: 'Rótulos para Garrafas de Vidro', 
+    desc: 'Design sofisticado com excelente aderência para bebidas e produtos premium.' 
+  },
+  { img: '/imgs/mockups/geleia.png', 
+    title: 'Rótulos para Potes de Vidro', 
+    desc: 'Rótulos charmosos e resistentes, ideais para produtos artesanais como geleias e conservas.' 
+  },
+  { img: '/imgs/mockups/carne.png', 
+    title: 'Rótulos para Embalagens de Carne', 
+    desc: 'Etiquetas resistentes à umidade e baixas temperaturas, ideais para produtos resfriados ou congelados.' 
+  },
+  { img: '/imgs/mockups/pao.png', 
+    title: 'Rótulos para Panificados', 
+    desc: 'Perfeitos para destacar produtos de padaria e confeitaria com visual apetitoso e informativo.' 
+  }
+]
+const slider = document.getElementById('product-slider');
   let index = 0;
   let visibleCount = 4;
   let itemWidth = 0;
+  let autoplayInterval = null;
+  let resumeTimeout = null;
 
   function renderSliderItems() {
     slider.innerHTML = '';
-
     const screenWidth = window.innerWidth;
     visibleCount = screenWidth < 640 ? 2 : 4;
 
-    // Renderizar os itens DUAS VEZES para efeito loop infinito
-    const fullItems = items.concat(items);
+    const fullItems = items.concat(items); // Loop infinito fake
 
     for (const item of fullItems) {
       const el = document.createElement('div');
@@ -510,34 +536,70 @@
 
   function nextSlide() {
     index++;
-
-    // Agora o limite é o número total de itens da lista original (não da lista duplicada)
     const maxIndex = items.length;
 
     if (index === maxIndex) {
-      // Chegou no final da primeira lista, faz a animação normalmente até aqui
       updateSlidePosition(true);
-
-      // Depois da animação terminar (500ms), volta sem animação para o início (index 0)
       setTimeout(() => {
         index = 0;
         updateSlidePosition(false);
-      }, 20);
+      }, 500);
     } else {
       updateSlidePosition(true);
     }
   }
 
+  function prevSlide() {
+    index--;
+    if (index < 0) {
+      index = items.length - 1;
+      updateSlidePosition(false);
+    } else {
+      updateSlidePosition(true);
+    }
+  }
+
+  function pauseAutoplay() {
+    clearInterval(autoplayInterval);
+    clearTimeout(resumeTimeout);
+    resumeTimeout = setTimeout(() => {
+      autoplayInterval = setInterval(nextSlide, 2500);
+    }, 5000);
+  }
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    pauseAutoplay();
+    nextSlide();
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    pauseAutoplay();
+    prevSlide();
+  });
+
   renderSliderItems();
-  let interval = setInterval(nextSlide, 2500);
+  autoplayInterval = setInterval(nextSlide, 2500);
 
   window.addEventListener('resize', () => {
     renderSliderItems();
     index = 0;
     updateSlidePosition(false);
   });
-</script>
 
+  // ✅ Swipe com Hammer.js (funciona iOS e Android)
+  const hammer = new Hammer(slider);
+  hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+
+  hammer.on('swipeleft', () => {
+    pauseAutoplay();
+    nextSlide();
+  });
+
+  hammer.on('swiperight', () => {
+    pauseAutoplay();
+    prevSlide();
+  });
+</script>
 
     <!-- Catálogo de Exemplos -->
     <section id="portfolio" class="py-16 bg-gray-50">
