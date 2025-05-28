@@ -20,52 +20,10 @@
 
 </head>
 
-<body class="bg-white">
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="/imgs/LOGO2.png" class="h-12">
-            </div>
-            
-            <div class="hidden md:flex items-center space-x-8">
-                <nav>
-                    <ul class="flex space-x-6">
-                        <li><a href="#home" class="nav-link text-gray-700 font-medium hover:text-purple-900">Home</a></li>
-                        <li><a href="#servicos" class="nav-link text-gray-700 font-medium hover:text-purple-900">Serviços</a></li>
-                        <li><a href="#catalogo" class="nav-link text-gray-700 font-medium hover:text-purple-900">Catálogo</a></li>
-                        <li><a href="#portfolio" class="nav-link text-gray-700 font-medium hover:text-purple-900">Portfólio</a></li>
-                        <li><a href="#sobre" class="nav-link text-gray-700 font-medium hover:text-purple-900">Sobre Nós</a></li>
-                        <li><a href="#contato" class="nav-link text-gray-700 font-medium hover:text-purple-900">Contato</a></li>
-                    </ul>
-                </nav>
-                
-                <a href="https://api.whatsapp.com/send/?phone=5521968297887&text=Ol%C3%A1!%20Estava%20navegando%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20melhor%20sobre%20um%20or%C3%A7amento." 
-                   class="btn-whatsapp flex items-center px-4 py-2 rounded-full text-white font-medium">
-                    <i class="fab fa-whatsapp mr-2 text-xl"></i> Entre em contato
-                </a>
-            </div>
-            
-            <!-- Mobile menu-->
-            <button class="md:hidden text-gray-700 focus:outline-none" id="mobile-menu-button">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-        <div class="md:hidden hidden bg-white py-4 px-4 shadow-lg" id="mobile-menu">
-            <ul class="flex flex-col space-y-4">
-                <li><a href="#home" class="nav-link text-gray-700 font-medium hover:text-purple-900">Home</a></li>
-                <li><a href="#servicos" class="nav-link text-gray-700 font-medium hover:text-purple-900">Serviços</a></li>
-                <li><a href="#catalogo" class="nav-link text-gray-700 font-medium hover:text-purple-900">Catálogo</a></li>
-                <li><a href="#sobre" class="nav-link text-gray-700 font-medium hover:text-purple-900">Sobre Nós</a></li>
-                <li><a href="#contato" class="nav-link text-gray-700 font-medium hover:text-purple-900">Contato</a></li>
-                <li>
-                    <a href="https://api.whatsapp.com/send/?phone=5521968297887&text=Ol%C3%A1!%20Estava%20navegando%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20melhor%20sobre%20um%20or%C3%A7amento." 
-                       class="btn-whatsapp flex items-center justify-center px-4 py-2 rounded-full text-white font-medium w-full">
-                        <i class="fab fa-whatsapp mr-2 text-xl"></i> Falar com vendedor
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </header>
+    <body class="bg-white">
+        <script src="/parciais/header.js"></script>
+        <div id="header-placeholder"></div>
+    
 
     <!-- Hero Banner -->
     <section id="home" class="hero-banner text-white py-20 md:py-32">
@@ -351,7 +309,7 @@
   </a>
 </div>
 
-<script src="/scripts/carrosel.js"> </script>
+<script src="/scripts/carrossel.js"> </script>
 
     <!-- Catálogo de Exemplos -->
     <section id="portfolio" class="py-16 bg-gray-50">
@@ -546,80 +504,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-white py-12" style="background-color: #362174;">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Logo -->
-                <div class="mb-6 md:mb-0">
-                    <img src="/imgs/LOGO2.png" class="h-20 mb-4">
-                    <p class="text-purple-200">Somos uma gráfica industrial especializada em etiquetas e rótulos personalizados. Com tecnologia de ponta e excelência em impressão, criamos soluções sob medida que valorizam sua marca com qualidade e profissionalismo.</p>
-                </div>
-                
-                <!-- Contato -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Contatos</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-purple-300"></i>
-                            <span class="text-purple-200">Rua da Batata, 104 BOX 41 e 43<br>Rio de Janeiro - RJ</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-2 text-purple-300"></i>
-                            <span class="text-purple-200">(21) 96829-7887</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2 text-purple-300"></i>
-                            <span class="text-purple-200">epletiquetas@gmail.com</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Redes Sociais -->
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Redes Sociais</h3>
-                    <div class="flex space-x-4 mb-4">                   
-                        <a href="https://www.instagram.com/epletiquetas/" class="bg-purple-800 hover:bg-purple-700 w-10 h-10 rounded-full flex items-center justify-center">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/epl-etiquetas" class="bg-purple-800 hover:bg-purple-700 w-10 h-10 rounded-full flex items-center justify-center">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://api.whatsapp.com/send/?phone=5521968297887&text=Ol%C3%A1!%20Estava%20navegando%20pelo%20seu%20site%20e%20gostaria%20de%20conversar%20melhor%20sobre%20um%20or%C3%A7amento." class="bg-green-600 hover:bg-green-700 w-10 h-10 rounded-full flex items-center justify-center">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                    
-                    <!-- Mapa da Localização -->
-<div class="mt-8">
-  <h3 class="text-lg font-bold mb-4">Localização</h3>
-  <div class="w-full h-32 rounded-lg overflow-hidden">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3092.396012451385!2d-43.280905729044704!3d-22.82100822738954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997bb10ad2b6c1%3A0x5937c90db8ce5622!2sR.%20da%20Batata%2C%20104%20-%20Penha%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2021011-020!5e0!3m2!1spt-BR!2sbr!4v1747844645346!5m2!1spt-BR!2sbr"
-      width="100%"
-      height="100%"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-</div>                    
-                </div>               
-            </div>            
-            <div class="border-t border-purple-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-purple-300 mb-4 md:mb-0">
-                    &copy; <span id="current-year"></span> EPL Etiquetas. Todos os direitos reservados.
-                </p>
-
-  <p class="text-purple-300 text-center">
-    CNPJ: 37.540.147/0001-84
-  </p>
-
-            </div>
-        </div>
-    </footer>
+    <script src="/parciais/footer.js"></script>
+    <div id="footer-placeholder"></div>
     <script src="scripts/footer.js"></script>
-     <script src="scripts/mensagem.js"></script>
+    <script src="scripts/mensagem.js"></script>
 
 </body>
 </html>
