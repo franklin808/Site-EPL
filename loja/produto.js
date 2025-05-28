@@ -1,46 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produto | EPL – Gráfica Flexográfica</title>
-  <meta name="description" content="Detalhes do produto personalizado da EPL">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/custom.css">
-  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-  <link rel="shortcut icon" href="/imgs/logo.png">
-</head>
-<body class="bg-gray-50 text-gray-800">
-
-  <script src="/parciais/header.js"></script>
-  <div id="header-placeholder"></div>
-
-  <main class="max-w-6xl mx-auto px-4 py-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-      <!-- Galeria de Imagens -->
-      <div>
-        <div class="relative">
-          <img id="imagem-principal" src="" alt="" class="w-full h-auto rounded-lg shadow-md object-contain max-h-[500px] mx-auto">
-        </div>
-        
-        <!-- Thumbnails -->
-        <div class="flex mt-4 gap-2 justify-center flex-wrap" id="thumbnails"></div>
-      </div>
-
-      <!-- Detalhes do Produto -->
-      <div>
-        <h1 id="titulo" class="text-3xl font-bold mb-4"></h1>
-        <p id="descricao" class="text-gray-700 text-lg mb-6"></p>
-        <p id="infoextra" class="text-gray-700 text-lg mb-6 ml-6"></p>
-        <p class="text-sm text-gray-500 mt-56 mb-2">Atendemos em todo o Brasil</p>
-        <p class="text-xl font-semibold text-purple-700 mb-4">Soluções personalizadas para sua marca</p>
-        <a href="/#contato" class="inline-block bg-purple-700 hover:bg-purple-800 text-white font-medium px-6 py-3 rounded-full transition">Fazer orçamento</a>
-
-      </div>
-    </div>
-  </main>
-
-  <script>
     const urlParams = new URLSearchParams(window.location.search);
     const nomeProduto = urlParams.get('produto');
 
@@ -86,22 +43,22 @@
         baseImg: 'bobina'
       },
       'Rótulos para Garrafas de Vidro': {
-        desc: '',
+        desc: 'Design sofisticado com excelente aderência para bebidas e produtos premium.',
         infoextra: 'a',
         baseImg: 'garrafa'
       },
       'Rótulos para Potes de Vidro': {
-        desc: '',
+        desc: 'Rótulos com qualidade e resistentes, ideais para produtos artesanais como geleias e conservas.',
         infoextra: 'a',
         baseImg: 'geleia'
       },
       'Rótulos para Embalagens de Carne': {
-        desc: '',
-        infoextra: 'Muito bom pra embalar',
+        desc: 'Etiquetas resistentes à umidade e baixas temperaturas, ideais para produtos resfriados ou congelados.',
+        infoextra: 'a',
         baseImg: 'carne'
       },
       'Rótulos para Panificados': {
-        desc: '',
+        desc: 'Perfeitos para destacar produtos de padaria e confeitaria com visual apetitoso e informativo.',
         infoextra: 'a',
         baseImg: 'pao'
       },
@@ -112,7 +69,6 @@
     if (produto) {
       document.getElementById('titulo').textContent = nomeProduto;
       document.getElementById('descricao').textContent = produto.desc;
-      document.getElementById('infoextra').textContent = produto.infoextra || '';
 
       const base = produto.baseImg;
       const imgDir = '/imgs/mockups/';
@@ -169,12 +125,3 @@
       document.getElementById('descricao').textContent = 'Não foi possível localizar este produto.';
       document.getElementById('imagem-principal').src = '/imgs/erro404.png';
     }
-  </script>
-
-    <script src="/parciais/footer.js"></script>
-    <div id="footer-placeholder"></div>
-    <script src="scripts/footer.js"></script>
-    <script src="scripts/mensagem.js"></script>
-
-</body>
-</html>

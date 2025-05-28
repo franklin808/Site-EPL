@@ -1,16 +1,16 @@
 const items = [
- { img: '/imgs/mockups/adesivos.png', 
-    title: 'Adesivos Personalizados', 
-    desc: 'Perfeito para ação de marketing, campanhas eleitorais e identificação em veículos, roupas e vitrines.' 
-  },   
+   { img: '/imgs/mockups/suco.png', 
+    title: 'Rótulos para Sucos', 
+    desc: 'Acabamento brilhante que valoriza sua marca e resiste à umidade da refrigeração.' 
+   },
   { img: '/imgs/mockups/picole.png', 
     title: 'Rótulos para Picolés', 
     desc: 'Impressão resistente ao frio e umidade, ideal para produtos congelados.' 
   },
-  { img: '/imgs/mockups/suco.png', 
-    title: 'Rótulos para Sucos', 
-    desc: 'Acabamento brilhante que valoriza sua marca e resiste à umidade da refrigeração.' 
-  },
+   { img: '/imgs/mockups/adesivos.png', 
+    title: 'Adesivos Personalizados', 
+    desc: 'Perfeito para ação de marketing, campanhas eleitorais e identificação em veículos, roupas e vitrines.' 
+  },   
   { img: '/imgs/mockups/panfleto.png', 
     title: 'Panfletos Promocionais', 
     desc: 'Impressão em alta qualidade para divulgar seus produtos e serviços.' 
@@ -24,7 +24,7 @@ const items = [
     desc: 'Alta resistência a produtos químicos e umidade, garantindo segurança e durabilidade.' 
   },
   { img: '/imgs/mockups/copo.png', 
-    title: 'Rótulos para Copos', 
+    title: 'Copo Ecológico', 
     desc: 'Perfeitos para personalização de copos descartáveis e reutilizáveis em eventos ou marcas.' 
   },
   { img: '/imgs/mockups/bobina.png', 
