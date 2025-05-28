@@ -73,7 +73,7 @@ const slider = document.getElementById('product-slider');
     <h3 class="font-bold text-lg text-gray-800">${item.title}</h3>
     <p class="text-gray-600 text-sm mb-4">${item.desc}</p>
   </div>
-  <a href="/loja/produto.html?produto=${encodeURIComponent(item.title)}" class="mt-auto inline-block bg-purple-700 hover:bg-purple-800 text-white text-sm px-4 py-2 rounded-full text-center transition">
+  <a href="/loja/produto.html?produto=${encodeURIComponent(item.title)}" class="mt-auto inline-block bg-purple-900 hover:bg-purple-800 text-white text-sm px-4 py-2 rounded-full text-center transition">
     Saiba mais
   </a>
 </div>
