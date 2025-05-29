@@ -44,68 +44,69 @@
     const urlParams = new URLSearchParams(window.location.search);
     const nomeProduto = urlParams.get('produto');
 
-    const produtos = {
-      'Rótulos para Sucos': {
-        desc: 'Acabamento brilhante que valoriza sua marca e resiste à umidade da refrigeração.',
-        infoextra: 'suco',
-        baseImg: 'suco'
-      },
-      'Rótulos para Picolés': {
-        desc: 'Impressão resistente ao frio e umidade, ideal para produtos congelados.',
-        infoextra: 'a',
-        baseImg: 'picole'
-      },
-      'Adesivos Personalizados': {
-        desc: 'Perfeito para ação de marketing, campanhas eleitorais e identificação em veículos, roupas e vitrines.',
-        infoextra: 'a',
-        baseImg: 'adesivos'
-      },
-      'Panfletos Promocionais': {
-        desc: 'Impressão em alta qualidade para divulgar seus produtos e serviços.',
-        infoextra: 'a',
-        baseImg: 'panfleto'
-      },
-      'Cartões de Visita': {
-        desc: 'Design profissional e impressão de alta definição para causar uma ótima primeira impressão.',
-        infoextra: 'a',
-        baseImg: 'copo'
-      },
-      'Rótulos para Produtos de Limpeza': {
-        desc: '',
-        infoextra: 'a',
-        baseImg: 'desinfetante'
-      },
-      'Copo Ecológico': {
-        desc: 'Acabamento brilhante que valoriza sua marca e resiste à umidade da refrigeração.',
-        infoextra: 'a',
-        baseImg: 'copo'
-      },
-      'Impressão em Bobina': {
-        desc: '',
-        infoextra: 'a',
-        baseImg: 'bobina'
-      },
-      'Rótulos para Garrafas de Vidro': {
-        desc: '',
-        infoextra: 'a',
-        baseImg: 'garrafa'
-      },
-      'Rótulos para Potes de Vidro': {
-        desc: '',
-        infoextra: 'a',
-        baseImg: 'geleia'
-      },
-      'Rótulos para Embalagens de Carne': {
-        desc: '',
-        infoextra: 'Muito bom pra embalar',
-        baseImg: 'carne'
-      },
-      'Rótulos para Panificados': {
-        desc: '',
-        infoextra: 'a',
-        baseImg: 'pao'
-      },
-    };
+const produtos = {
+  'Rótulos para Sucos': {
+    desc: 'Acabamento brilhante que valoriza sua marca e resiste à umidade da refrigeração.',
+    infoextra: 'Material recomendado: BOPP brilho ou fosco. Indicado para garrafas plásticas ou de vidro que ficam sob refrigeração.',
+    baseImg: 'suco'
+  },
+  'Rótulos para Picolés': {
+    desc: 'Impressão resistente ao frio e umidade, ideal para produtos congelados.',
+    infoextra: 'Desenvolvidos para resistir a temperaturas negativas e contato com gelo. Material: BOPP fosco ou transparente.',
+    baseImg: 'picole'
+  },
+  'Adesivos Personalizados': {
+    desc: 'Perfeito para ação de marketing, campanhas eleitorais e identificação em veículos, roupas e vitrines.',
+    infoextra: 'Opções de acabamento: fosco, brilho, perolado, metalizado e transparente. Adesivos com excelente fixação e durabilidade.',
+    baseImg: 'adesivos'
+  },
+  'Panfletos Promocionais': {
+    desc: 'Impressão em alta qualidade para divulgar seus produtos e serviços.',
+    infoextra: 'Impresso em papel couché de alta gramatura, com acabamento fosco ou brilho. Ideal para distribuição em massa ou eventos.',
+    baseImg: 'panfleto'
+  },
+  'Cartões de Visita': {
+    desc: 'Design profissional e impressão de alta definição para causar uma ótima primeira impressão.',
+    infoextra: 'Pode incluir laminação fosca, brilho localizado, QR Code e cortes especiais. Papel couché com alta gramatura.',
+    baseImg: 'cartao'
+  },
+  'Rótulos para Produtos de Limpeza': {
+    desc: 'Alta resistência a produtos químicos e umidade, garantindo segurança e durabilidade.',
+    infoextra: 'Ideal para frascos plásticos com exposição constante à água ou agentes químicos. Material: BOPP fosco ou transparente.',
+    baseImg: 'desinfetante'
+  },
+  'Copo Ecológico': {
+    desc: 'Acabamento brilhante que valoriza sua marca e resiste à umidade da refrigeração.',
+    infoextra: 'Rótulos ideais para personalização de copos reutilizáveis e ações sustentáveis. Excelente fixação e visual atrativo.',
+    baseImg: 'copo'
+  },
+  'Impressão em Bobina': {
+    desc: 'Ideal para grandes tiragens, com agilidade e compatibilidade para diversos sistemas de envase.',
+    infoextra: 'Compatível com máquinas automáticas. Opções de material: BOPP ou papel térmico. Alta velocidade de produção.',
+    baseImg: 'bobina'
+  },
+  'Rótulos para Garrafas de Vidro': {
+    desc: 'Design sofisticado com excelente aderência para bebidas e produtos premium.',
+    infoextra: 'Disponível com acabamento metalizado e perolado. Ideal para cervejas artesanais, sucos e azeites.',
+    baseImg: 'garrafa'
+  },
+  'Rótulos para Potes de Vidro': {
+    desc: 'Rótulos charmosos e resistentes, ideais para produtos artesanais como geleias e conservas.',
+    infoextra: 'Permite corte personalizado para encaixe perfeito no pote. Opções em BOPP ou couché.',
+    baseImg: 'geleia'
+  },
+  'Rótulos para Embalagens de Carne': {
+    desc: 'Etiquetas resistentes à umidade e baixas temperaturas, ideais para produtos resfriados ou congelados.',
+    infoextra: 'Adesão firme mesmo com gordura e umidade. BOPP com adesivo especial para baixas temperaturas.',
+    baseImg: 'carne'
+  },
+  'Rótulos para Panificados': {
+    desc: 'Perfeitos para destacar produtos de padaria e confeitaria com visual apetitoso e informativo.',
+    infoextra: 'Pode incluir espaço para validade e lote. Ideal para embalagem em saquinhos ou bandejas plásticas.',
+    baseImg: 'pao'
+  }
+};
+
 
     const produto = produtos[nomeProduto];
 

@@ -66,21 +66,20 @@ const slider = document.getElementById('product-slider');
       const el = document.createElement('div');
       el.className = 'min-w-[50%] sm:min-w-[25%] p-2 box-border';
       el.innerHTML = `
-        <div class="bg-white rounded-lg shadow-md overflow-hidden flex-col h-full">
-          <img src="${item.img}" alt="${item.title}" class="w-full h-128 object-cover flex-shrink-0">
-<div class="p-4 flex-grow flex flex-col justify-between">
-  <div>
-    <h3 class="font-bold text-lg text-gray-800">${item.title}</h3>
-    <p class="text-gray-600 text-sm mb-4">${item.desc}</p>
+  <div class="bg-white rounded-lg shadow-md overflow-hidden h-full flex flex-col">
+    <img src="${item.img}" alt="${item.title}" class="w-full h-128 object-cover">
+    <div class="p-4 flex flex-col flex-1 justify-between">
+      <div>
+        <h3 class="font-bold text-lg text-gray-800">${item.title}</h3>
+        <p class="text-gray-600 text-sm mb-4">${item.desc}</p>
+      </div>
+      <a href="/loja/produto.html?produto=${encodeURIComponent(item.title)}" class="mt-auto inline-block bg-purple-900 hover:bg-purple-800 text-white text-sm px-4 py-2 rounded-full text-center transition">
+        Saiba mais
+      </a>
+    </div>
   </div>
-  <a href="/loja/produto.html?produto=${encodeURIComponent(item.title)}" class="mt-auto inline-block bg-purple-900 hover:bg-purple-800 text-white text-sm px-4 py-2 rounded-full text-center transition">
-    Saiba mais
-  </a>
-</div>
+`;
 
-          </div>
-        </div>
-      `;
       slider.appendChild(el);
     }
 

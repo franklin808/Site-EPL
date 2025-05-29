@@ -1,19 +1,378 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produto | EPL – Gráfica Flexográfica</title>
-  <meta name="description" content="Detalhes do produto personalizado da EPL">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/custom.css">
-  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-  <link rel="shortcut icon" href="/imgs/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto | EPL – Gráfica Flexográfica</title>
+    <meta name="description" content="Detalhes do produto personalizado da EPL">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link rel="stylesheet" href="/custom.css">
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <link rel="shortcut icon" href="/imgs/logo.png">
 </head>
 <body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+        <script src="/parciais/header.js"></script>
+        <div id="header-placeholder"></div>   
 
-  <script src="/parciais/header.js"></script>
-  <div id="header-placeholder"></div>             
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-purple-900 to-purple-900 text-white py-16 md:py-24">
+
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6">Faça Parte da Família EPL Etiquetas</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">
+                Na EPL Etiquetas, acreditamos que o sucesso começa com pessoas comprometidas. Somos uma gráfica industrial especializada em etiquetas e rótulos personalizados, com foco em qualidade, inovação e atendimento de excelência. Se você é apaixonado por criar, colaborar e crescer, queremos te conhecer.
+            </p>
+            <p class="text-2xl md:text-3xl font-semibold italic text-yellow-500">Juntos, imprimimos histórias de sucesso</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 md:py-16">
+        <div class="flex flex-col lg:flex-row gap-12">
+            <!-- Form Section -->
+            <div class="lg:w-2/3">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8">Envie seu currículo</h2>
+                
+                <form id="jobForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome completo*</label>
+                        <input type="text" id="name" name="name" required 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-epl-purple focus:border-epl-purple">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail*</label>
+                            <input type="email" id="email" name="email" required 
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-epl-purple focus:border-epl-purple">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone*</label>
+                            <input type="tel" id="phone" name="phone" required 
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-epl-purple focus:border-epl-purple">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="area" class="block text-sm font-medium text-gray-700 mb-1">Área de interesse*</label>
+                        <select id="area" name="area" required 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-epl-purple focus:border-epl-purple">
+                            <option value="" disabled selected>Selecione uma área</option>
+                            <option value="Produção">Produção</option>
+                            <option value="Comercial">Comercial</option>
+                            <option value="Administrativo">Administrativo</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+                        <textarea id="message" name="message" rows="4" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-epl-purple focus:border-epl-purple"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="resume" class="block text-sm font-medium text-gray-700 mb-1">Currículo (PDF ou DOC)*</label>
+                        <div id="fileDropArea" class="file-input-label rounded-md p-6 text-center cursor-pointer">
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required 
+                                class="hidden" onchange="handleFileSelect(event)">
+                            <div class="space-y-2">
+                                <i class="fas fa-cloud-upload-alt text-4xl text-epl-purple"></i>
+                                <p class="font-medium">Arraste e solte seu arquivo aqui ou clique para selecionar</p>
+                                <p class="text-sm text-gray-500">Formatos aceitos: PDF, DOC, DOCX (Tamanho máximo: 5MB)</p>
+                                <p id="fileName" class="text-sm font-medium text-epl-purple hidden"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <button type="submit" 
+                            class="w-full md:w-auto px-8 py-3 bg-epl-purple text-white rounded-full hover:bg-purple-900 transition duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+                            Enviar Currículo
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Contact Info Section -->
+            <div class="lg:w-1/3">
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">Informações de Contato</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-epl-purple bg-opacity-10 p-3 rounded-full">
+                                <i class="fas fa-envelope text-epl-purple"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-medium text-gray-500">E-mail para currículos</h4>
+                                <a href="mailto:epletiquetas@gmail.com" class="text-base text-gray-800 hover:text-epl-purple">epletiquetas@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-epl-purple bg-opacity-10 p-3 rounded-full">
+                                <i class="fas fa-phone-alt text-epl-purple"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-medium text-gray-500">Telefone/WhatsApp</h4>
+                                <a href="tel:+5521968297887" class="text-base text-gray-800 hover:text-epl-purple">(21) 96829-7887</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-epl-purple bg-opacity-10 p-3 rounded-full">
+                                <i class="fas fa-map-marker-alt text-epl-purple"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-medium text-gray-500">Endereço</h4>
+                                <p class="text-base text-gray-800">Rua da Batata, 104 BOX 41 e 43<br>Rio de Janeiro - RJ</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h4 class="text-sm font-medium text-gray-500 mb-2">Horário de funcionamento</h4>
+                        <p class="text-base text-gray-800">Segunda a Sexta: 8h às 18h</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Por que trabalhar na EPL?</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Ambiente colaborativo e inovador</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Oportunidades de crescimento profissional</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Benefícios competitivos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span class="text-gray-700">Equipe diversificada e acolhedora</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+<section class="bg-purple-800 text-white py-12 md:py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">Estamos prontos para crescer com você.</h2>
+        <p class="text-lg max-w-2xl mx-auto mb-8">Envie seu currículo e venha fazer parte da nossa história.</p>
+        <a href="#jobForm" class="inline-block px-8 py-3 bg-white text-purple-800 rounded-full hover:bg-gray-100 transition duration-300 font-medium">
+            Enviar Currículo
+        </a>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <script src="/parciais/footer.js"></script>
+    <div id="footer-placeholder"></div>
+    <script src="scripts/footer.js"></script>
+
+    <script>
+        // Handle file selection and drag & drop
+        function handleFileSelect(event) {
+            const fileInput = event.target;
+            const fileDropArea = document.getElementById('fileDropArea');
+            const fileName = document.getElementById('fileName');
+            
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                fileName.textContent = file.name;
+                fileName.classList.remove('hidden');
+                fileDropArea.classList.remove('dragover');
+            }
+        }
+
+        // Set up drag and drop events
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileDropArea = document.getElementById('fileDropArea');
+            const fileInput = document.getElementById('resume');
+            
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                fileDropArea.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                fileDropArea.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                fileDropArea.addEventListener(eventName, unhighlight, false);
+            });
+            
+            function highlight() {
+                fileDropArea.classList.add('dragover');
+            }
+            
+            function unhighlight() {
+                fileDropArea.classList.remove('dragover');
+            }
+            
+            fileDropArea.addEventListener('drop', handleDrop, false);
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                fileInput.files = files;
+                handleFileSelect({ target: fileInput });
+            }
+            
+            // Form submission
+            const form = document.getElementById('jobForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would normally send the form data to the server
+                alert('Formulário enviado com sucesso! Entraremos em contato em breve.');
+                form.reset();
+                document.getElementById('fileName').classList.add('hidden');
+            });
+        });
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // Inicialize o cliente Supabase com sua URL e public anon key
+  const supabaseUrl = 'https://jlhzbpbazlvxobqfmhci.supabase.co'; // substitua pela sua URL
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpsaHpicGJhemx2eG9icWZtaGNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNjAyMTgsImV4cCI6MjA2MjczNjIxOH0.kNjhJHtPZRw0-TBaFLe8pXlnDEHEgJuqzH3OdiZrrRk'; // substitua pela sua chave pública
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+  // Handle file selection and drag & drop (mantive seu código)
+  function handleFileSelect(event) {
+    const fileInput = event.target;
+    const fileDropArea = document.getElementById('fileDropArea');
+    const fileName = document.getElementById('fileName');
+    
+    if (fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+      fileName.textContent = file.name;
+      fileName.classList.remove('hidden');
+      fileDropArea.classList.remove('dragover');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const fileDropArea = document.getElementById('fileDropArea');
+    const fileInput = document.getElementById('resume');
+    
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+      fileDropArea.addEventListener(eventName, preventDefaults, false);
+    });
+    
+    function preventDefaults(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
+    ['dragenter', 'dragover'].forEach(eventName => {
+      fileDropArea.addEventListener(eventName, highlight, false);
+    });
+    
+    ['dragleave', 'drop'].forEach(eventName => {
+      fileDropArea.addEventListener(eventName, unhighlight, false);
+    });
+    
+    function highlight() {
+      fileDropArea.classList.add('dragover');
+    }
+    
+    function unhighlight() {
+      fileDropArea.classList.remove('dragover');
+    }
+    
+    fileDropArea.addEventListener('drop', handleDrop, false);
+    
+    function handleDrop(e) {
+      const dt = e.dataTransfer;
+      const files = dt.files;
+      fileInput.files = files;
+      handleFileSelect({ target: fileInput });
+    }
+    
+    // Form submission
+    const form = document.getElementById('jobForm');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // Pegando dados do formulário
+      const nome = form.name.value.trim();
+      const email = form.email.value.trim();
+      const telefone = form.phone.value.trim();
+      const area = form.area.value;
+      const message = form.message.value.trim();
+      const arquivo = form.resume.files[0];
+
+      if (!arquivo) {
+        alert('Por favor, envie seu currículo.');
+        return;
+      }
+
+      // Validação de tamanho (5MB)
+      if (arquivo.size > 5 * 1024 * 1024) {
+        alert('O arquivo deve ter no máximo 5MB.');
+        return;
+      }
+
+      // Criar nome único para o arquivo (exemplo: timestamp_nomeoriginal.ext)
+      const timestamp = Date.now();
+      const fileExt = arquivo.name.split('.').pop();
+      const fileName = `curriculos/${timestamp}_${nome.replace(/\s+/g, '_').toLowerCase()}.${fileExt}`;
+
+      // Upload do arquivo para o storage Supabase
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('curriculos')
+        .upload(fileName, arquivo, {
+          cacheControl: '3600',
+          upsert: false
+        });
+
+      if (uploadError) {
+        alert('Erro no upload do arquivo: ' + uploadError.message);
+        return;
+      }
+
+      // Salvar dados no banco
+      const { data, error } = await supabase
+        .from('nome_da_tabela') // substitua pelo nome da tabela correta
+        .insert([{
+          nome,
+          email,
+          telefone,
+          area,
+          message,
+          resumo: fileName,  // salvar o caminho do arquivo no storage
+        }]);
+
+      if (error) {
+        alert('Erro ao salvar os dados: ' + error.message);
+        return;
+      }
+
+      alert('Formulário enviado com sucesso! Entraremos em contato em breve.');
+      form.reset();
+      document.getElementById('fileName').classList.add('hidden');
+    });
+  });
+</script>
+
 
 </body>
 </html>
