@@ -6,15 +6,15 @@ html {
 }
 
 /* Fonte principal e cor base */
-body {
+html, body {
     font-family: 'Poppins', sans-serif;
-    background-color: #ffffff !important;
+    background-color: transparent !important;
     color: #000000 !important;
 }
 
 /* Banner principal */
 .hero-banner {
-    background-image: linear-gradient(rgba(54, 33, 116, 0.7), rgba(54, 33, 116, 0.7)), url('/imgs/FIT-9.jpg');
+    background-image: linear-gradient(rgba(54, 33, 116, 0.7), rgba(54, 33, 116, 0.7)), url('/imgs/fundo2.webp');
     background-size: cover;
     background-position: center;
 }
@@ -58,4 +58,15 @@ body {
 /* Links do menu */
 .nav-link:hover {
     color: #362174;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: -1; /* Isso coloca o pseudo-elemento atrás de todo o conteúdo */
 }

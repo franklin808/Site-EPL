@@ -8,7 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/custom.css">
   <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-  <link rel="shortcut icon" href="/imgs/logo.png">
+  <link rel="shortcut icon" href="/imgs/logo.webp">
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -60,11 +60,6 @@ const produtos = {
     infoextra: 'Opções de acabamento: fosco, brilho, perolado, metalizado e transparente. Adesivos com excelente fixação e durabilidade.',
     baseImg: 'adesivos'
   },
-  'Panfletos Promocionais': {
-    desc: 'Impressão em alta qualidade para divulgar seus produtos e serviços.',
-    infoextra: 'Impresso em papel couché de alta gramatura, com acabamento fosco ou brilho. Ideal para distribuição em massa ou eventos.',
-    baseImg: 'panfleto'
-  },
   'Cartões de Visita': {
     desc: 'Design profissional e impressão de alta definição para causar uma ótima primeira impressão.',
     infoextra: 'Pode incluir laminação fosca, brilho localizado, QR Code e cortes especiais. Papel couché com alta gramatura.',
@@ -79,6 +74,11 @@ const produtos = {
     desc: 'Acabamento brilhante que valoriza sua marca e resiste à umidade da refrigeração.',
     infoextra: 'Rótulos ideais para personalização de copos reutilizáveis e ações sustentáveis. Excelente fixação e visual atrativo.',
     baseImg: 'copo'
+  },
+    'Ribbon': {
+    desc: 'Impressão em alta qualidade para divulgar seus produtos e serviços.',
+    infoextra: 'Impresso em papel couché de alta gramatura, com acabamento fosco ou brilho. Ideal para distribuição em massa ou eventos.',
+    baseImg: 'ribbon'
   },
   'Impressão em Bobina': {
     desc: 'Ideal para grandes tiragens, com agilidade e compatibilidade para diversos sistemas de envase.',
@@ -116,7 +116,7 @@ const produtos = {
       document.getElementById('infoextra').textContent = produto.infoextra || '';
 
       const base = produto.baseImg;
-      const imgDir = '/imgs/mockups/';
+      const imgDir = '/imgs/webp/';
       const imagemPrincipal = document.getElementById('imagem-principal');
       const thumbnailsContainer = document.getElementById('thumbnails');
 
@@ -134,7 +134,7 @@ const produtos = {
 
       async function carregarImagens() {
         while (true) {
-          const nomeArquivo = index === 1 ? `${base}.png` : `${base}${index}.png`;
+          const nomeArquivo = index === 1 ? `${base}.webp` : `${base}${index}.webp`;
           const caminhoCompleto = imgDir + nomeArquivo;
 
           const existe = await verificarImagem(caminhoCompleto);
@@ -159,7 +159,7 @@ const produtos = {
             thumbnailsContainer.appendChild(thumb);
           });
         } else {
-          imagemPrincipal.src = imgDir + 'erro404.png';
+          imagemPrincipal.src = imgDir + 'erro404.webp';
           imagemPrincipal.alt = 'Imagem não disponível';
         }
       }
@@ -168,7 +168,7 @@ const produtos = {
     } else {
       document.getElementById('titulo').textContent = 'Produto não encontrado';
       document.getElementById('descricao').textContent = 'Não foi possível localizar este produto.';
-      document.getElementById('imagem-principal').src = '/imgs/erro404.png';
+      document.getElementById('imagem-principal').src = '/imgs/erro404.webp';
     }
   </script>
 

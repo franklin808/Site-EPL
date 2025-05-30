@@ -182,94 +182,12 @@
     <div id="footer-placeholder"></div>
     <script src="scripts/footer.js"></script>
 
-    <script>
-        // Handle file selection and drag & drop
-        function handleFileSelect(event) {
-            const fileInput = event.target;
-            const fileDropArea = document.getElementById('fileDropArea');
-            const fileName = document.getElementById('fileName');
-            
-            if (fileInput.files.length > 0) {
-                const file = fileInput.files[0];
-                fileName.textContent = file.name;
-                fileName.classList.remove('hidden');
-                fileDropArea.classList.remove('dragover');
-            }
-        }
-
-        // Set up drag and drop events
-        document.addEventListener('DOMContentLoaded', function() {
-            const fileDropArea = document.getElementById('fileDropArea');
-            const fileInput = document.getElementById('resume');
-            
-            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                fileDropArea.addEventListener(eventName, preventDefaults, false);
-            });
-            
-            function preventDefaults(e) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-            
-            ['dragenter', 'dragover'].forEach(eventName => {
-                fileDropArea.addEventListener(eventName, highlight, false);
-            });
-            
-            ['dragleave', 'drop'].forEach(eventName => {
-                fileDropArea.addEventListener(eventName, unhighlight, false);
-            });
-            
-            function highlight() {
-                fileDropArea.classList.add('dragover');
-            }
-            
-            function unhighlight() {
-                fileDropArea.classList.remove('dragover');
-            }
-            
-            fileDropArea.addEventListener('drop', handleDrop, false);
-            
-            function handleDrop(e) {
-                const dt = e.dataTransfer;
-                const files = dt.files;
-                fileInput.files = files;
-                handleFileSelect({ target: fileInput });
-            }
-            
-            // Form submission
-            const form = document.getElementById('jobForm');
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                // Here you would normally send the form data to the server
-                alert('Formulário enviado com sucesso! Entraremos em contato em breve.');
-                form.reset();
-                document.getElementById('fileName').classList.add('hidden');
-            });
-        });
-    </script>
-
-    <script>
-    document.getElementById('fileDropArea').addEventListener('click', function () {
-        document.getElementById('resume').click();
-    });
-
-    function handleFileSelect(event) {
-        const file = event.target.files[0];
-        const fileName = document.getElementById('fileName');
-        if (file) {
-            fileName.textContent = file.name;
-            fileName.classList.remove('hidden');
-        }
-    }
-</script>
-
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   // Inicialize o cliente Supabase com sua URL e public anon key
   const supabaseUrl = 'https://jlhzbpbazlvxobqfmhci.supabase.co'; // substitua pela sua URL
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpsaHpicGJhemx2eG9icWZtaGNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNjAyMTgsImV4cCI6MjA2MjczNjIxOH0.kNjhJHtPZRw0-TBaFLe8pXlnDEHEgJuqzH3OdiZrrRk'; // substitua pela sua chave pública
-  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpsaHpicGJhemx2eG9icWZtaGNpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzE2MDIxOCwiZXhwIjoyMDYyNzM2MjE4fQ.k6DHztL64_eUWN2LA-ULJ43EjPp_M5NzCtS4jbg-dGo'; // substitua pela sua chave pública
+  const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
   // Handle file selection and drag & drop (mantive seu código)
   function handleFileSelect(event) {
@@ -326,67 +244,90 @@
     // Form submission
     const form = document.getElementById('jobForm');
     form.addEventListener('submit', async function(e) {
-      e.preventDefault();
+    e.preventDefault();
 
-      // Pegando dados do formulário
-      const nome = form.name.value.trim();
-      const email = form.email.value.trim();
-      const telefone = form.phone.value.trim();
-      const area = form.area.value;
-      const message = form.message.value.trim();
-      const arquivo = form.resume.files[0];
+    const nome = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const area = document.getElementById('area').value;
+    const message = document.getElementById('message').value;
+    const fileInput = document.getElementById('resume');
 
-      if (!arquivo) {
-        alert('Por favor, envie seu currículo.');
-        return;
-      }
+    if (fileInput.files.length === 0) {
+      alert('Por favor, selecione um arquivo de currículo.');
+      return;
+    }
 
-      // Validação de tamanho (5MB)
-      if (arquivo.size > 5 * 1024 * 1024) {
-        alert('O arquivo deve ter no máximo 5MB.');
-        return;
-      }
+    const file = fileInput.files[0];
 
-      // Criar nome único para o arquivo (exemplo: timestamp_nomeoriginal.ext)
-      const timestamp = Date.now();
-      const fileExt = arquivo.name.split('.').pop();
-      const fileName = `curriculos/${timestamp}_${nome.replace(/\s+/g, '_').toLowerCase()}.${fileExt}`;
+    if (file.size > 5 * 1024 * 1024) { // 5MB limit
+      alert('Arquivo muito grande! Máximo permitido: 5MB.');
+      return;
+    }
 
-      // Upload do arquivo para o storage Supabase
-      const { data: uploadData, error: uploadError } = await supabase.storage
+    // Botão de submit para desabilitar e mostrar feedback (opcional)
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando...';
+
+    try {
+      // 1. Upload do arquivo para o Supabase Storage
+      const filePath = `curriculos/${Date.now()}_${file.name}`;
+      const { data: storageData, error: storageError } = await supabase.storage
+        .from('curriculos') // Nome do seu bucket no Supabase Storage
+        .upload(filePath, file);
+
+      if (storageError) throw storageError;
+
+      // 2. Obter a URL pública do arquivo
+      const { data: publicUrlData } = supabase.storage
         .from('curriculos')
-        .upload(fileName, arquivo, {
-          cacheControl: '3600',
-          upsert: false
-        });
+        .getPublicUrl(filePath);
 
-      if (uploadError) {
-        alert('Erro no upload do arquivo: ' + uploadError.message);
-        return;
+      if (!publicUrlData || !publicUrlData.publicUrl) {
+          // Mesmo que o bucket seja privado, a URL é gerada.
+          // Se getPublicUrl falhar de forma inesperada ou não retornar uma URL, trate como erro.
+          console.warn("A URL pública não foi obtida como esperado, mas o arquivo pode ter sido enviado. Verifique o bucket.");
+          // Dependendo da sua configuração de bucket (público ou privado com URLs assinadas),
+          // você pode precisar ajustar como lida com isso. Para um bucket público, isso deve funcionar.
       }
+      
+      const curriculo_url = publicUrlData.publicUrl;
 
-      // Salvar dados no banco
-      const { data, error } = await supabase
-        .from('nome_da_tabela') // substitua pelo nome da tabela correta
-        .insert([{
-          nome,
-          email,
-          telefone,
-          area,
-          message,
-          resumo: fileName,  // salvar o caminho do arquivo no storage
-        }]);
 
-      if (error) {
-        alert('Erro ao salvar os dados: ' + error.message);
-        return;
-      }
+      // 3. Inserir os dados do formulário e a URL do currículo no banco de dados
+      // Ajuste 'sua_tabela_de_curriculos' para o nome real da sua tabela
+      const { data: dbData, error: dbError } = await supabase
+        .from('curriculos') // <<< SUBSTITUA PELO NOME DA SUA TABELA
+        .insert([
+          { 
+            nome: nome, 
+            email: email, 
+            telefone: phone, 
+            area_interesse: area, // 'area' do formulário
+            mensagem: message,   // 'message' do formulário
+            curriculo_url: curriculo_url // URL do arquivo do Storage
+          }
+        ]);
 
-      alert('Formulário enviado com sucesso! Entraremos em contato em breve.');
+      if (dbError) throw dbError;
+
+      alert('Currículo enviado com sucesso!');
       form.reset();
+      document.getElementById('fileName').textContent = '';
       document.getElementById('fileName').classList.add('hidden');
-    });
+
+    } catch (error) {
+      console.error('Erro detalhado:', error);
+      alert('Erro ao enviar o currículo: ' + error.message);
+    } finally {
+      // Reabilitar o botão e restaurar o texto
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
   });
+});;
 </script>
 
 

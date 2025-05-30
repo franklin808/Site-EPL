@@ -15,11 +15,21 @@
     <script src="scripts/supabase.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8TY3BG82X"></script>
     <script src="scripts/google.js"></script>
-    <link rel="shortcut icon" href="/imgs/logo.png">
+    <link rel="shortcut icon" href="/imgs/logo.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="/assets/scrollreveal.js"></script>
     <script src="/assets/reveal-init.js"></script>
-
+    <style>
+        .gallery-item img {
+            aspect-ratio: 1 / 1; /* Garante que as imagens mantenham a proporção quadrada */
+        }
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+    </style>
 
 </head>
 
@@ -28,7 +38,6 @@
         <div id="header-placeholder"></div>
     
 
-    <!-- Hero Banner -->
     <section id="home" class="hero-banner text-white py-20 md:py-32">
         <div class="container mx-auto px-4">
             <div class="max-w-2xl">
@@ -42,188 +51,238 @@
         </div>
     </section>
 
-    <section class="py-24 min-h-screen flex justify-center items-center ">
-
+<section class="pt-24 pb-12 flex justify-center items-center ">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
       <div
-
         class="mb-10 lg:mb-16 flex justify-center items-center flex-col gap-x-0 gap-y-6 lg:gap-y-0 lg:flex-row lg:justify-between max-md:max-w-lg max-md:mx-auto">
-
         <div class="relative w-full text-center lg:text-left lg:w-2/4">
-
           <h2
-
             class="text-5xl font-bold scale_up text-gray-900 font-title leading-none lg:mb-6 mx-auto max-w-max lg:max-w-lg lg:mx-0 reveal-top">
-
             Descubra as Vantagens da EPL.
-
           </h2>
-
         </div>
-
         <div class="relative w-full text-center lg:text-left lg:w-2/4">
-
           <p class="text-lg font-normal scale_up text-gray-500 mb-5 reveal-bottom">
-
             Soluções de impressão de alta qualidade para destacar sua marca. Produzimos etiquetas, rótulos e materiais gráficos com agilidade, precisão e acabamento profissional.
-
           </p>
-
         </div>
-
       </div>
-
       <div
-
         class="flex justify-center items-stretch gap-x-5 gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8">
-
         <div
-
           class="group relative w-full reveal_bottom bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5   xl:p-7 xl:w-1/4 hover:bg-[#362174]">
-
           <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
-
             <i class="fas fa-xl fa-wallet reveal_spin text-[#362174]"></i>
-
           </div>
-
           <h4
-
             class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
-
             Custo Benefício
-
           </h4>
-
           <p class="sm:text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-
             Impressão econômica em grandes volumes com excelente qualidade e fidelidade de cor.
-
           </p>
-
         </div>
-
         <div 
-
           class="group relative w-full reveal_bottom bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5   xl:p-7 xl:w-1/4 hover:bg-[#362174]">
-
           <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
-
             <i class="fas fa-xl fa-wrench reveal_spin text-[#362174]"></i>
-
           </div>
-
           <h4
-
             class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
-
             Produção ágil
-
           </h4>
-
           <p class="sm:text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-
             Atendemos prazos curtos com rapidez e eficiência, sem perder a qualidade.
-
           </p>
-
         </div>
-
         <div
-
           class="group relative w-full reveal_bottom bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5   xl:p-7 xl:w-1/4 hover:bg-[#362174]">
-
           <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
-
             <i class="fas  fa-xl fa-layer-group reveal_spin text-[#362174]"></i>
-
           </div>
-
           <h4
-
             class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
-
             Versatilidade de materiais
-
           </h4>
-
           <p class="sm:text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-
             Trabalhamos com diversos tipos de papéis e filmes, ideais para qualquer tipo de embalagem ou produto.
-
           </p>
-
         </div>
-
         <div
-
           class="group relative w-full reveal_bottom bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5   xl:p-7 xl:w-1/4 hover:bg-[#362174]">
-
           <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
-
             <i class="fas  fa-xl fa-eye reveal_spin text-[#362174]"></i>
-
           </div>
-
           <h4
-
             class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
-
             Alta definição
-
           </h4>
-
           <p class="sm:text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-
             Resultados nítidos e profissionais para destacar sua marca no ponto de venda.
-
           </p>
-
         </div>
-
       </div>
-
-
-
     </div>
-
   </section>
 
-    <!-- Nossos Serviços 
-    <section id="servicos" class="py-16 bg-gray-50">
+    <section id="portfolio" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">Nossos Serviços</h2>
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Nossos Produtos</h2>
                 <div class="w-20 h-1 bg-purple-900 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Confira alguns dos nossos trabalhos realizados para diversos segmentos do mercado</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
-                    <div class="text-purple-900 mb-4">
-                        <i class="fas fa-print text-5xl"></i>
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <a href="/loja/produto.html?produto=Rótulos para Sucos">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/suco.webp" alt="Rótulos para Sucos" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Rótulos para Sucos</h3>
+                            <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Assistência Técnica para Impressoras de Bobinas</h3>
-                    <p class="text-gray-600">Tecnologia ideal para grandes tiragens com cores vibrantes e alta definição, garantindo qualidade superior em seus rótulos.</p>
-                </div>
-                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
-                    <div class="text-purple-900 mb-4">
-                        <i class="fas fa-industry text-5xl"></i>
+                </a>
+
+                <a href="/loja/produto.html?produto=Rótulos para Picolés">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/picole.webp" alt="Rótulos para Picolés" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Rótulos para Picolés</h3>
+                             <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Flexografia Industrial</h3>
-                    <p class="text-gray-600">Solução perfeita para impressão em materiais diversos como plástico, papel e alumínio, com secagem rápida e alta durabilidade.</p>
-                </div>
-                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300">
-                    <div class="text-purple-900 mb-4">
-                        <i class="fas fa-laptop-code text-5xl"></i>
+                </a>
+
+                <a href="/loja/produto.html?produto=Adesivos Personalizados">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/adesivos.webp" alt="Adesivos Personalizados" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Adesivos Personalizados</h3>
+                             <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Impressão Digital</h3>
-                    <p class="text-gray-600">Tecnologia versátil para pequenas tiragens e personalização, com qualidade fotográfica e entrega ágil para projetos urgentes.</p>
-                </div>
+                </a>
+                <a href="/loja/produto.html?produto=Cartões de Visita">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/cartao.webp" alt="Cartões de Visita" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Cartões de Visita</h3>
+                            <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/loja/produto.html?produto=Rótulos para Produtos de Limpeza">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/desinfetante.webp" alt="Rótulos para Produtos de Limpeza" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Rótulos para Produtos de Limpeza</h3>
+                            <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/loja/produto.html?produto=Copo Ecológico">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/copo.webp" alt="Copo Ecológico" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Copo Ecológico</h3>
+                            <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/loja/produto.html?produto=Ribbon">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/ribbon.webp" alt="Panfletos Promocionais" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Ribbon</h3>
+                            <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/loja/produto.html?produto=Impressão em Bobina">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/bobina.webp" alt="Impressão em Bobina" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Impressão em Bobina</h3>
+                            <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/loja/produto.html?produto=Rótulos para Garrafas de Vidro">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/garrafa.webp" alt="Rótulos para Garrafas de Vidro" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Rótulos para Garrafas de Vidro</h3>
+                            <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/loja/produto.html?produto=Rótulos para Potes de Vidro">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/geleia.webp" alt="Rótulos para Potes de Vidro" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Rótulos para Potes de Vidro</h3>
+                            <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/loja/produto.html?produto=Rótulos para Embalagens de Carne">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/carne.webp" alt="Rótulos para Embalagens de Carne" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Rótulos para Embalagens de Carne</h3>
+                            <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/loja/produto.html?produto=Rótulos para Panificados">
+                    <div class="gallery-item flex flex-col overflow-hidden rounded-lg shadow-md bg-white transition-transform duration-300 hover:scale-105">
+                        <img src="/imgs/webp/pao.webp" alt="Rótulos para Panificados" class="w-full object-cover">
+                        <div class="p-4 card-content">
+                            <h3 class="font-bold text-lg text-gray-800">Rótulos para Panificados</h3>
+                            <div class="mt-4">
+                               <span class="inline-block bg-purple-700 text-white text-sm font-bold py-2 px-4 rounded-full hover:bg-purple-800 transition-colors">Saiba Mais</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </div>
-    </section> -->
-    <section class="py-16 bg-white">
+    </section>
+
+     <section class="bg-white py-16">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-800 mb-2 reveal-top">Por que escolher a EPL?</h2>
@@ -276,84 +335,12 @@
             </div>
         </div>
     </section>
-    
-    <section id="catalogo" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 reveal-top">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">Catálogo</h2>
-                <div class="w-20 h-1 bg-purple-900 mx-auto"></div>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Confira alguns dos nossos serviços realizados para diversos segmentos do mercado</p>
-            </div>
-        </div>
-    </section>
 
-<div class="relative overflow-hidden w-full">
-  <div id="product-slider" class="flex transition-transform duration-500 ease-in-out will-change-transform"></div>
-
-<button id="prevBtn" class="hidden sm:block absolute left-2 top-[40%] -translate-y-1/2 bg-white/70 hover:bg-white w-12 h-12 rounded-full shadow-md z-10 flex items-center justify-center text-xl">
-  ‹
-</button>
-<button id="nextBtn" class="hidden sm:block absolute right-2 top-[40%] -translate-y-1/2 bg-white/70 hover:bg-white w-12 h-12 rounded-full shadow-md z-10 flex items-center justify-center text-xl">
-  ›
-</button>
-
-</div>
-
-<div class="text-center mt-12">
-  <a href="#contato" class="btn-primary inline-flex items-center px-6 py-3 rounded-full text-white font-bold">
-    Solicitar Catálogo Completo
-  </a>
-</div>
-
-<script src="/scripts/carrossel.js"> </script>
-
-    <!-- Catálogo de Exemplos
-    <section id="portfolio" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">Portfólio</h2>
-                <div class="w-20 h-1 bg-purple-900 mx-auto"></div>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Confira alguns dos nossos trabalhos realizados para diversos segmentos do mercado</p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white">
-                    <img src="/imgs/produtos/copo.jpg" 
-                         alt="Rótulos para alimentos" class="w-full h-128 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg text-gray-800">Copo Ecológico</h3>
-                        <p class="text-gray-600">Copos reutilizáveis personalizados para eventos e brindes sustentáveis.</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white">
-                    <img src="/imgs/produtos/etiquetas.jpg" 
-                         alt="Rótulos para cosméticos" class="w-full h-128 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg text-gray-800">Etiquetas</h3>
-                        <p class="text-gray-600">Etiquetas adesivas indicativas, de gôndola, para embalagens, e-commerce, balança e impressoras térmicas. </p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item overflow-hidden rounded-lg shadow-md bg-white">
-                    <img src="/imgs/produtos/rotulos.jpg" 
-                         alt="Rótulos para farmacêuticos" class="w-full h-128 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg text-gray-800">Rótulos</h3>
-                        <p class="text-gray-600">Rótulos adesivos personalizados para embalagens de alimentos, cosméticos, bebidas e outros produtos.</p>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </section> -->
-
-    <!-- Sobre Nós -->
     <section id="sobre" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
-                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                    <img src="imgs/fundo3.webp" 
                          alt="Fábrica EPL" class="rounded-lg shadow-lg w-full">
                 </div>
                 
@@ -400,7 +387,6 @@
         </div>
     </section>
 
-    <!-- Contato -->
     <section id="contato" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -499,7 +485,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <script src="/parciais/footer.js"></script>
     <div id="footer-placeholder"></div>
     <script src="scripts/footer.js"></script>
